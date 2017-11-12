@@ -1,0 +1,22 @@
+Cześć, 
+znalazłem rozwiązanie, które działa dla mnie. 
+od listopadowej aktualizacji jestproblem z uruchomieniem Domoticz po restarcie nie startuje z powodu braku 'pliku' : libssl1.0.0
+
+Pracuję z RPi B + pod Raspbian Stretch Desktop + Domoticz v.3.8153. 
+Moje rozwiązanie: 
+
+Dodaj " Jessie " do pliku " sources.list ".
+KOD: sudo nano /etc/apt/sources.list
+
+Dodaj linię:
+KOD: deb http://archive.raspbian.org/raspbian/ jessie main contrib non-free rpi
+Następnie:
+KOD:
+sudo apt-get update
+sudo apt-get install libssl1.0.0
+sudo /etc/init.d/domoticz.sh stop
+sudo /etc/init.d/domoticz.sh start
+sudo /etc/init.d/domoticz.sh status
+Mam wtedy => aktywny (działający)  
+
+Mam nadzieję, że może komuś pomóc.
